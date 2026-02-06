@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>GameKello – Viral Trends 🔥</title>
+    <meta name="description" content="Trending public figures and viral moments. Updated 24/7.">
+    <meta property="og:title" content="GameKello – She broke the internet today 😳">
+    <meta property="og:description" content="Everyone is searching her name...">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=1200">
+    <meta name="theme-color" content="#ff0055">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #ff0055;
+            --primary-light: #ff3377;
+            --dark: #050505;
+            --darker: #020202;
+            --card-bg: #0f0f0f;
+            --border: #1a1a1a;
+            --text: #ffffff;
+            --text-muted: #666666;
+            --gradient-1: linear-gradient(135deg, #ff0055 0%, #ff5500 100%);
+            --gradient-2: linear-gradient(135deg, #00d4ff 0%, #0099ff 100%);
+            --glass: rgba(255, 255, 255, 0.03);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--darker);
+            color: var(--text);
+            overflow-x: hidden;
+            padding-bottom: 100px;
+            line-height: 1.5;
+        }
+
+        /* Animated Background */
+        .bg-mesh {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 0, 85, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 85, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(0, 212, 255, 0.05) 0%, transparent 50%);
+            filter: blur(60px);
+            animation: meshMove 20s ease-in-out infinite;
+        }
+
+        @keyframes meshMove {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+        }
+
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 15px 20px;
+        }
+
+        .header-content {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            letter-spacing: -1px;
+        }
+
+        .logo::after {
+            content: '🔥';
+            position: absolute;
+            right: -25px;
+            top: -5px;
+            font-size: 20px;
+            -webkit-text-fill-color: initial;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .nav-pills {
+            display: flex;
+            gap: 8px;
+        }
+
+        .nav-pill {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--text-muted);
+            background: var(--glass);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .nav-pill.active {
+            background: var(--gradient-1);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 4px 20px rgba(255, 0, 85, 0.3);
+        }
+
+        /* Top Ad */
+        .ad-section {
+            max-width: 600px;
+            margin: 15px auto;
+            padding: 0 15px;
+        }
+
+        .ad-container {
+            background: linear-gradient(135deg, rgba(255,0,85,0.1) 0%, rgba(255,85,0,0.05) 100%);
+            border: 1px solid rgba(255, 0, 85, 0.2);
+            border-radius: 16px;
+            padding: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ad-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .ad-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary-light);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .ad-placeholder {
+            height: 90px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0 15px;
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .stats-bar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .stat-chip {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            padding: 10px 20px;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .stat-chip .live-dot {
+            width: 8px;
+            height: 8px;
+            background: #00ff88;
+            border-radius: 50%;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* Masonry Grid */
+        .content-grid {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 15px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            background: var(--card-bg);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--border);
+        }
+
+        .card:nth-child(3n) {
+            grid-row: span 2;
+        }
+
+        .card:hover {
+            transform: translateY(-5px) scale(1.02);
+            border-color: rgba(255, 0, 85, 0.5);
+            box-shadow: 0 20px 40px rgba(255, 0, 85, 0.2);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 100%;
+            min-height: 200px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .card:nth-child(3n) .card-image {
+            min-height: 400px;
+        }
+
+        .card:hover .card-image {
+            transform: scale(1.1);
+        }
+
+        .card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 60%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover .card-overlay {
+            opacity: 1;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--gradient-1);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(255, 0, 85, 0.4);
+            z-index: 2;
+        }
+
+        .card-title {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .card-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .card-views {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: var(--primary-light);
+            font-weight: 600;
+        }
+
+        /* In-feed Ad */
+        .feed-ad {
+            grid-column: span 2;
+            background: linear-gradient(135deg, rgba(255,0,85,0.1) 0%, rgba(0,212,255,0.05) 100%);
+            border: 2px solid rgba(255, 0, 85, 0.3);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feed-ad-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .feed-ad::after {
+            content: 'AD';
+            position: absolute;
+            font-size: 120px;
+            font-weight: 900;
+            color: rgba(255, 0, 85, 0.03);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        /* Sticky Bottom Ad */
+        .bottom-ad-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid var(--border);
+            padding: 10px 15px;
+            z-index: 2000;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .bottom-ad-container.hidden {
+            transform: translateY(100%);
+        }
+
+        .bottom-ad {
+            max-width: 600px;
+            margin: 0 auto;
+            height: 60px;
+            background: linear-gradient(90deg, rgba(255,0,85,0.2) 0%, rgba(0,212,255,0.2) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--text-muted);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 3000;
+            overflow-y: auto;
+        }
+
+        .modal.active {
+            display: block;
+        }
+
+        .modal-close {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 3001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: var(--primary);
+            transform: rotate(90deg);
+        }
+
+        .modal-content {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 20px;
+        }
+
+        .modal-image {
+            max-width: 100%;
+            max-height: 70vh;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            animation: modalIn 0.4s ease;
+        }
+
+        @keyframes modalIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .modal-info {
+            margin-top: 30px;
+            text-align: center;
+            max-width: 500px;
+        }
+
+        .modal-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            justify-content: center;
+        }
+
+        .action-btn {
+            padding: 12px 30px;
+            border-radius: 25px;
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .action-btn.primary {
+            background: var(--gradient-1);
+            color: white;
+            box-shadow: 0 10px 30px rgba(255, 0, 85, 0.3);
+        }
+
+        .action-btn.secondary {
+            background: var(--glass);
+            color: white;
+            border: 1px solid var(--border);
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 0, 85, 0.4);
+        }
+
+        .modal-ad {
+            margin-top: 40px;
+            width: 100%;
+            max-width: 400px;
+            height: 250px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+        }
+
+        /* Loading Skeleton */
+        .skeleton {
+            background: linear-gradient(90deg, var(--card-bg) 25%, #1a1a1a 50%, var(--card-bg) 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+            border-radius: 20px;
+        }
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Scroll Progress */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--gradient-1);
+            z-index: 9999;
+            transition: width 0.1s;
+        }
+
+        /* Floating Elements */
+        .floating-hearts {
+            position: fixed;
+            pointer-events: none;
+            z-index: 4000;
+        }
+
+        .heart {
+            position: absolute;
+            color: var(--primary);
+            font-size: 24px;
+            animation: floatUp 4s ease-in forwards;
+            opacity: 0;
+        }
+
+        @keyframes floatUp {
+            0% {
+                opacity: 1;
+                transform: translateY(0) scale(0) rotate(0deg);
+            }
+            15% {
+                opacity: 1;
+                transform: translateY(-30px) scale(1.2) rotate(-10deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-300px) scale(0.5) rotate(20deg);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 24px;
+            }
+            
+            .nav-pill {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+            
+            .content-grid {
+                gap: 8px;
+                padding: 10px;
+            }
+            
+            .card {
+                border-radius: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Effects -->
+    <div class="bg-mesh"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">GameKello</div>
+            <nav class="nav-pills">
+                <a href="#" class="nav-pill active">🔥 Trending</a>
+                <a href="#" class="nav-pill">Girls</a>
+                <a href="#" class="nav-pill">Clips</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Top Ad -->
+    <div class="ad-section">
+        <div class="ad-container">
+            <div class="ad-label">Sponsored Content</div>
+            <div class="ad-placeholder" id="topAd">
+                MoneyTag Premium Ad Banner
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+        <div class="stat-chip">
+            <span class="live-dot"></span>
+            <span>2.4M Online</span>
+        </div>
+        <div class="stat-chip">
+            <span>🔥</span>
+            <span>14K Trending</span>
+        </div>
+        <div class="stat-chip">
+            <span>⚡</span>
+            <span>Updated Now</span>
+        </div>
+    </div>
+
+    <!-- Content Grid -->
+    <main class="content-grid" id="contentGrid">
+        <!-- Content loaded by JS -->
+    </main>
+
+    <!-- Bottom Sticky Ad -->
+    <div class="bottom-ad-container" id="bottomAd">
+        <div class="bottom-ad">
+            MoneyTag Sticky Ad - High CTR Zone
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+        <div class="modal-content">
+            <img class="modal-image" id="modalImg" src="" alt="">
+            <div class="modal-info">
+                <h2 class="modal-title" id="modalTitle">Viral Content</h2>
+                <p style="color: #666; font-size: 14px;">Breaking the internet since 2 minutes ago</p>
+                <div class="modal-actions">
+                    <button class="action-btn primary" onclick="showHearts(event)">
+                        ❤️ Like
+                    </button>
+                    <button class="action-btn secondary">
+                        ↗️ Share
+                    </button>
+                </div>
+            </div>
+            <div class="modal-ad">
+                <div style="text-align: center;">
+                    <div style="font-size: 24px; margin-bottom: 10px;">💎</div>
+                    <div>Premium Ad Space</div>
+                    <div style="font-size: 12px; color: #444; margin-top: 5px;">MoneyTag Interstitial</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Hearts Container -->
+    <div class="floating-hearts" id="heartsContainer"></div>
+
+    <script>
+        // Content Data
+        const viralContent = [
+            { id: 1, title: "She broke the internet today 😳", views: "1.2M", badge: "VIRAL", img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600", height: "tall" },
+            { id: 2, title: "Everyone is searching her name...", views: "856K", badge: "HOT", img: "https://images.unsplash.com/photo-1524504388940-b1c1723873e1?w=600", height: "normal" },
+            { id: 3, title: "Trending #1 Worldwide 🌍", views: "2.1M", badge: "TOP", img: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600", height: "normal" },
+            { id: 4, title: "This can't be real 🔥", views: "543K", badge: "NEW", img: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=600", height: "tall" },
+            { id: 5, title: "Internet is losing it", views: "992K", badge: "VIRAL", img: "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=600", height: "normal" },
+            { id: 6, title: "Wait for it... 😍", views: "1.5M", badge: "HOT", img: "https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?w=600", height: "normal" },
+            { id: 7, title: "Breaking: Trending Now", views: "3.2M", badge: "LIVE", img: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600", height: "tall" },
+            { id: 8, title: "You need to see this", views: "778K", badge: "FRESH", img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600", height: "normal" }
+        ];
+
+        let currentIndex = 0;
+        let isLoading = false;
+
+        // Initialize
+        function init() {
+            loadBatch();
+            setupInfiniteScroll();
+            setupScrollProgress();
+            setupAdRefresh();
+        }
+
+        // Create Card HTML
+        function createCard(item) {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+                <img class="card-image" src="${item.img}" alt="${item.title}" loading="lazy">
+                <div class="card-badge">${item.badge}</div>
+                <div class="card-overlay">
+                    <div class="card-title">${item.title}</div>
+                    <div class="card-meta">
+                        <span class="card-views">👁 ${item.views}</span>
+                        <span>•</span>
+                        <span>Just now</span>
+                    </div>
+                </div>
+            `;
+            card.onclick = () => openModal(item);
+            return card;
+        }
+
+        // Create Ad Card
+        function createAdCard() {
+            const ad = document.createElement('div');
+            ad.className = 'feed-ad';
+            ad.innerHTML = `
+                <div class="feed-ad-content">
+                    <div style="font-size: 32px; margin-bottom: 10px;">💎</div>
+                    <div style="font-weight: 700; font-size: 16px; margin-bottom: 5px;">Featured Content</div>
+                    <div style="font-size: 12px; color: #666;">Sponsored by MoneyTag</div>
+                </div>
+            `;
+            return ad;
+        }
+
+        // Load Content Batch
+        function loadBatch() {
+            if (isLoading) return;
+            isLoading = true;
+
+            const grid = document.getElementById('contentGrid');
+            
+            // Add skeleton loading
+            for (let i = 0; i < 3; i++) {
+                const skeleton = document.createElement('div');
+                skeleton.className = 'card skeleton';
+                skeleton.style.height = Math.random() > 0.5 ? '300px' : '400px';
+                grid.appendChild(skeleton);
+            }
+
+            // Simulate API delay
+            setTimeout(() => {
+                // Remove skeletons
+                document.querySelectorAll('.skeleton').forEach(el => el.remove());
+
+                // Add content
+                for (let i = 0; i < 4; i++) {
+                    const item = viralContent[currentIndex % viralContent.length];
+                    const card = createCard(item);
+                    grid.appendChild(card);
+                    currentIndex++;
+
+                    // Insert ad every 4 items
+                    if (currentIndex % 4 === 0) {
+                        grid.appendChild(createAdCard());
+                    }
+                }
+
+                isLoading = false;
+            }, 600);
+        }
+
+        // Modal Functions
+        function openModal(item) {
+            const modal = document.getElementById('modal');
+            const img = document.getElementById('modalImg');
+            const title = document.getElementById('modalTitle');
+            
+            img.src = item.img;
+            title.textContent = item.title;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Refresh ad
+            refreshAd('modal');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Infinite Scroll
+        function setupInfiniteScroll() {
+            let scrollTimeout;
+            window.addEventListener('scroll', () => {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(() => {
+                    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+                    if (scrollTop + clientHeight >= scrollHeight - 500) {
+                        loadBatch();
+                    }
+                    
+                    // Hide/show bottom ad based on scroll direction
+                    const bottomAd = document.getElementById('bottomAd');
+                    if (scrollTop > lastScrollTop && scrollTop > 100) {
+                        bottomAd.classList.add('hidden');
+                    } else {
+                        bottomAd.classList.remove('hidden');
+                    }
+                    lastScrollTop = scrollTop;
+                }, 50);
+            });
+        }
+
+        let lastScrollTop = 0;
+
+        // Scroll Progress Bar
+        function setupScrollProgress() {
+            window.addEventListener('scroll', () => {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                document.getElementById('scrollProgress').style.width = scrolled + '%';
+            });
+        }
+
+        // Floating Hearts Animation
+        function showHearts(e) {
+            const container = document.getElementById('heartsContainer');
+            const rect = e.target.getBoundingClientRect();
+            
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'heart';
+                    heart.textContent = '❤️';
+                    heart.style.left = (rect.left + Math.random() * rect.width) + 'px';
+                    heart.style.top = rect.top + 'px';
+                    container.appendChild(heart);
+                    
+                    setTimeout(() => heart.remove(), 4000);
+                }, i * 100);
+            }
+        }
+
+        // Ad Refresh Logic
+        function setupAdRefresh() {
+            // Refresh sticky ad every 30 seconds
+            setInterval(() => {
+                refreshAd('sticky');
+            }, 30000);
+
+            // Refresh top ad every 60 seconds
+            setInterval(() => {
+                refreshAd('top');
+            }, 60000);
+        }
+
+        function refreshAd(type) {
+            // Simulate ad refresh
+            console.log(`Refreshing ${type} ad at ${new Date().toLocaleTimeString()}`);
+            if (window.MoneyTag) {
+                window.MoneyTag.refresh(type);
+            }
+        }
+
+        // Initialize on load
+        init();
+
+        // Close modal on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // Simulate live view counter
+        setInterval(() => {
+            const chips = document.querySelectorAll('.stat-chip');
+            if (chips[0]) {
+                const views = Math.floor(Math.random() * 500) + 2400;
+                chips[0].innerHTML = `<span class="live-dot"></span><span>${views}K Online</span>`;
+            }
+        }, 5000);
+    </script>
+</body>
+</html>
